@@ -5,7 +5,7 @@ This repo contains the source code for the Driving Instructor Price Comparison A
 
 ** Important notes **
 
-There are 4 build variants:
+There are 2 build variants:
 
 mobileDebug - signed with non-system key, not pro-guarded
 mobileRelease - signed with non-system key, pro-guarded

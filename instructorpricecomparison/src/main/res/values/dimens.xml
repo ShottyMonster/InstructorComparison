@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default radius, used for rounding edges on view components -->
+    <dimen name="default_radius">8dp</dimen>
+
+    <!-- Padding for buttons throughout the app -->
+    <dimen name="button_padding">8dp</dimen>
+
+    <!-- Margin for buttons -->
+    <dimen name="button_margin">16dp</dimen>
+
+    <!-- Size of blob icons on admin pin screen for drawable scaling -->
+    <dimen name="pin_blob_size">64dp</dimen>
+</resources>

@@ -1,0 +1,83 @@
+<resources>
+
+    <!-- Platform theme -->
+    <style name="Theme.Application" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Medium</item>
+        <item name="android:buttonStyle">@style/Widget.Button</item>
+        <item name="android:editTextStyle">@style/Widget.EditText</item>
+    </style>
+
+    <!-- Splash theme -->
+    <style name="Theme.Application.Splash">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:colorPrimaryDark">@android:color/transparent</item>
+    </style>
+
+    <!-- Primary theme -->
+    <style name="ThemeOverlay.Primary" parent="">
+        <item name="android:colorControlNormal">@color/colorPrimary</item>
+    </style>
+
+    <!-- Primary theme inverse -->
+    <style name="ThemeOverlay.Primary.Inverse">
+        <item name="android:colorControlNormal">@android:color/white</item>
+    </style>
+
+    <!-- Edit text style -->
+    <style name="Widget.EditText" parent="@style/Base.Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+        <item name="android:background">@drawable/rounded_edit_text_bg</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <!-- Edit text inverse style -->
+    <style name="Widget.EditText.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor_inverse</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:colorAccent">@android:color/white</item>
+    </style>
+
+    <!-- Link text style -->
+    <style name="Widget.LinkText" parent="">
+        <item name="android:textColor">@color/colorLink</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- Standard button style -->
+    <style name="Widget.Button" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/rounded_button_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.Medium.Inverse</item>
+    </style>
+
+    <!-- Text appearance medium -->
+    <style name="TextAppearance.Medium.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Text appearance medium -->
+    <style name="TextAppearance.Medium" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Text appearance extra large -->
+    <style name="TextAppearance.ExtraLarge" parent="@style/TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <!-- Text appearance extra large inverse -->
+    <style name="TextAppearance.ExtraLarge.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Widget.Button.Day">
+        <item name="android:background">@drawable/circle_button_bg</item>
+    </style>
+</resources>

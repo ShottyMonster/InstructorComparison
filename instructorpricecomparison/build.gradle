@@ -1,0 +1,225 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+// These variable refer to release builds so make sure they are correct. If you need to override them
+// for some specific development needs then use variables that can be passed to gradle on command line.
+String releaseVersionName = '1.0.0'
+int releaseVersionCode = 1
+int releaseMinSdk = 26
+int releaseCompileSdkVersion = 28
+
+// Check that we have signing config, if we do - import it
+def signingConfigPath = "${System.properties['userDetails.home']}${File.separator}.signing_keys${File.separator}signingConfigs.gradle"
+def signingConfigsFile = new File(signingConfigPath)
+if(signingConfigsFile.exists()) {
+    apply from: "${signingConfigPath}"
+}
+
+def sign
+
+android {
+    compileSdkVersion 28
+    int developProductVersionCode = System.getenv("BUILD_ID") as Integer ?: releaseVersionCode
+    defaultConfig {
+        applicationId "com.thomascook.instructorpricecomparison"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode developProductVersionCode
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        //noinspection GroovyMissingReturnStatement
+        develop {
+            applicationIdSuffix ".develop"
+            //In this flavour we use release* variable explicitly so they cannot be
+            //overridden by mistake
+            //Force min sdk version from the global variable
+            minSdkVersion releaseMinSdk
+            //Force version name from the global variables
+            versionName releaseVersionName
+            //Force version code from the global variable
+            versionCode releaseVersionCode
+            //Force compile and target sdk versions from the global variable
+            compileSdkVersion releaseCompileSdkVersion
+            targetSdkVersion releaseCompileSdkVersion
+            dimension "default"
+        }
+        //Normal build for release
+        playstore {
+            dimension "default"
+            //In this flavour we use release* variable explicitly so they cannot be
+            //overridden by mistake
+            //Force min sdk version from the global variable
+            minSdkVersion releaseMinSdk
+            //Force version name from the global variables
+            versionName releaseVersionName
+            //Force version code from the global variable
+            versionCode releaseVersionCode
+        }
+    }
+
+    buildTypes {
+        debug {
+            dexOptions {
+                jumboMode = true
+                javaMaxHeapSize "1g"
+            }
+            multiDexEnabled true
+            matchingFallbacks = ['debug', 'release']
+            if (sign != null) {
+                signingConfig sign
+            }
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            dexOptions {
+                jumboMode = true
+                javaMaxHeapSize "1g"
+            }
+            ext.betaDistributionReleaseNotesFilePath = 'beta_release_notes.txt'
+            ext.betaDistributionEmailsFilePath = 'beta_distribution_emails.txt'
+            if (sign != null) {
+                signingConfig sign
+            }
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            all {
+                jvmArgs '-noverify'
+            }
+        }
+    }
+    packagingOptions {
+        exclude 'thirdpartynotice.txt'
+    }
+}
+
+dependencies {
+    // Runtime dep versions
+    def appCenterVersion = "1.9.0"
+    def thirtyinchVersion = "0.9.0"
+    def stethoVersion = "1.5.0"
+    def leakCanaryVersion = "1.5.4"
+    def hahaVersion = "1.3"
+    def multiDexVersion = "2.0.1"
+    def constraintLayoutVersion = "1.1.3"
+    def appCompatVersion = "1.0.2"
+    def recyclerViewVersion = "1.0.0"
+    def okhttpVersion = "3.10.0"
+    def retrofitVersion = "2.5.0"
+    def moshiVersion = "1.8.0"
+    def rxAndroidVersion = "2.0.2"
+    def rxKotlinVersion = "2.2.0"
+    def googleGmsVesiron = "16.0.0"
+    def firebaseCoreVersion = "16.0.7"
+    def fireBaseAuthVersion = "4.3.1"
+    def firestoreVersion = "18.0.1"
+
+    // Test dep versions
+    def jUnitVersion = "4.12"
+    def robolectricVersion = '4.1'
+    def mockitoVersion = '2.22.0'
+    def kotlinMockitoVersion = '2.1.0'
+
+    // Std lib dependency
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    
+    // App center dependency for cloud logging
+    implementation "com.microsoft.appcenter:appcenter-analytics:$appCenterVersion"
+    implementation "com.microsoft.appcenter:appcenter-crashes:$appCenterVersion"
+
+    // Androidx deps
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+    // Thirty inch mvp dependency for SoC between UI and business logic
+    implementation "net.grandcentrix.thirtyinch:thirtyinch:$thirtyinchVersion"
+
+    // Multidex dependency
+    implementation "androidx.multidex:multidex:$multiDexVersion"
+
+    // Rx extensions
+    implementation group: 'io.reactivex.rxjava2', name: 'rxandroid', version: "$rxAndroidVersion"
+    implementation group: 'io.reactivex.rxjava2', name: 'rxkotlin', version: "$rxKotlinVersion"
+
+    // Facebook Stetho dependency for debugging network calls
+    debugImplementation "com.facebook.stetho:stetho:$stethoVersion"
+    debugImplementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
+
+    // Library for detecting memory leaks
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    debugImplementation "com.squareup.haha:haha:$hahaVersion"
+
+    //Networking dependencies
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: "$okhttpVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+
+    // RXjava2 retrofit
+    implementation(group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: "$retrofitVersion") {
+        exclude module: 'okhttp'
+        exclude module: 'rxjava'
+    }
+
+    // Google maps
+    implementation "com.google.android.gms:play-services-maps:$googleGmsVesiron"
+
+    // Location client
+    implementation "com.google.android.gms:play-services-location:$googleGmsVesiron"
+
+    // Firebase core
+    implementation "com.google.firebase:firebase-core:$firebaseCoreVersion"
+
+    // Firebase auth
+    implementation "com.firebaseui:firebase-ui-auth:$fireBaseAuthVersion"
+
+    // Firestore
+    implementation "com.google.firebase:firebase-firestore:$firestoreVersion"
+
+    // Junit dependency for testing
+    testImplementation "junit:junit:$jUnitVersion"
+
+    // Leak Canary test time dep
+    testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+
+    // Kotlin test deps
+    testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: "$kotlin_version"
+    testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: "$kotlin_version"
+
+    // Mockito test dep
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: "$mockitoVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$kotlinMockitoVersion"
+
+    // Robolectric test dep
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+
+    // Mock web server test dep
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
+}
+
+apply plugin: 'com.google.gms.google-services'

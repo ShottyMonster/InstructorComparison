@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.Primary">
+
+        <TextView
+                android:id="@+id/titleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.ExtraLarge"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/title_instructor_setup" />
+
+        <TextView
+                android:id="@+id/pictureLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/pictureBtn"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:text="@string/hint_upload_photo"
+                android:labelFor="@+id/pictureBtn"
+                android:textAlignment="center"/>
+
+        <Button
+                android:id="@+id/pictureBtn"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:foreground="@drawable/ic_add"
+                android:foregroundTint="@android:color/white"
+                android:contentDescription="@string/cd_logo"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@+id/pictureLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/forenameLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="16dp"/>
+
+        <TextView
+                android:id="@+id/forenameLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pictureBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/foreNameTxt"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_marginBottom="8dp"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:text="@string/hint_enter_forename"
+                android:labelFor="@+id/foreNameTxt"
+                android:textAlignment="center"/>
+
+        <EditText
+                android:id="@+id/foreNameTxt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.EditText"
+                app:layout_constraintTop_toBottomOf="@+id/forenameLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/surnameLabel"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:textAlignment="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="email"
+                android:inputType="text"
+                tools:text="Forename"/>
+
+        <TextView
+                android:id="@+id/surnameLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foreNameTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/surnameTxt"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_marginBottom="8dp"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:text="@string/hint_enter_surname"
+                android:labelFor="@+id/surnameTxt"
+                android:textAlignment="center"/>
+
+        <EditText
+                android:id="@+id/surnameTxt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.EditText"
+                app:layout_constraintTop_toBottomOf="@+id/surnameLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/dobLabel"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:textAlignment="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="@null"
+                android:inputType="text"
+                tools:text="Surname"/>
+
+        <TextView
+                android:id="@+id/dobLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/surnameTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/dobPicker"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_marginBottom="8dp"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:text="@string/hint_enter_dob"
+                android:labelFor="@+id/dobPicker"
+                android:textAlignment="center"/>
+
+        <DatePicker
+                android:id="@+id/dobPicker"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dobLabel"
+                app:layout_constraintBottom_toTopOf="@+id/continueBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:spinnersShown="true"/>
+
+        <Button
+                android:id="@+id/continueBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/next"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

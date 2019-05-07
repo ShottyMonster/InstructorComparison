@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "494109137268",
+    "firebase_url": "https://instructorpricec-1548597795048.firebaseio.com",
+    "project_id": "instructorpricec-1548597795048",
+    "storage_bucket": "instructorpricec-1548597795048.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494109137268:android:ac2806fe1f42066e",
+        "android_client_info": {
+          "package_name": "com.thomascook.instructorpricecomparison"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494109137268-3a0sklf9u1eq8qjgam7olcr44k2tbvo6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thomascook.instructorpricecomparison",
+            "certificate_hash": "b5681a104b9325ade1fff18065c0bf3952f51e97"
+          }
+        },
+        {
+          "client_id": "494109137268-s2p7hrodfbn1i5gpfr6ko1556afc65j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRKTCDjLPXnFYwzhtNF7x-AnewE5u8cR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494109137268-s2p7hrodfbn1i5gpfr6ko1556afc65j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494109137268:android:356e3a7840bffeaa",
+        "android_client_info": {
+          "package_name": "com.thomascook.instructorpricecomparison.develop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494109137268-okbqusakeoq538njq64r9pmstq000gf3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thomascook.instructorpricecomparison.develop",
+            "certificate_hash": "b5681a104b9325ade1fff18065c0bf3952f51e97"
+          }
+        },
+        {
+          "client_id": "494109137268-s2p7hrodfbn1i5gpfr6ko1556afc65j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRKTCDjLPXnFYwzhtNF7x-AnewE5u8cR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494109137268-s2p7hrodfbn1i5gpfr6ko1556afc65j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

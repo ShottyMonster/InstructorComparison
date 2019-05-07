@@ -1,0 +1,47 @@
+<resources>
+    <!-- App name -->
+    <string name="app_name">U:Drive</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_logo">U Drive Logo</string>
+
+    <!-- Hint strings -->
+    <string name="hint_enter_title">Select your title</string>
+    <string name="hint_enter_forename">Enter your forename</string>
+    <string name="hint_enter_surname">Enter your surname</string>
+    <string name="hint_enter_age">Select your age</string>
+    <string name="hint_upload_photo">Upload a photo</string>
+    <string name="hint_enter_dob">Enter your date of birth</string>
+    <string name="hint_start_of_availability">Available from</string>
+    <string name="hint_end_of_availability">Available to</string>
+    <string name="hint_on_days">On days</string>
+
+    <!-- Day strings -->
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="sunday">S</string>
+
+    <!-- Welcome strings -->
+    <string name="what_are_you">What are you?</string>
+    <string name="im_a_learner">I\'m a learner</string>
+    <string name="im_an_instructor">I\'m an instructor</string>
+
+    <!-- Login strings -->
+    <string name="next">Next</string>
+
+    <!-- Title strings -->
+    <string name="title_welcome">Welcome to U:Drive</string>
+    <string name="title_learner_setup">Learner Setup</string>
+    <string name="title_instructor_setup">Instructor Setup</string>
+
+    <!-- Signup strings -->
+    <string name="learner">Learner</string>
+    <string name="instructor">Instructor</string>
+
+    <!-- Progress strings -->
+    <string name="please_wait">Please wait…</string>
+</resources>

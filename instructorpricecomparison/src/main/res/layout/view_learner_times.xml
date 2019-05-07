@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/ThemeOverlay.Primary">
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.ExtraLarge"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/title_learner_setup" />
+
+        <TextView
+            android:id="@+id/startOfAvailabilityLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/startOfAvailabilityPicker"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.Medium"
+            android:text="@string/hint_start_of_availability"
+            android:labelFor="@+id/startOfAvailabilityPicker"
+            android:textAlignment="center"/>
+
+        <TimePicker
+            android:id="@+id/startOfAvailabilityPicker"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startOfAvailabilityLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/endOfAvailabilityLabel"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:timePickerMode="spinner"/>
+
+        <TextView
+            android:id="@+id/endOfAvailabilityLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startOfAvailabilityPicker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/endOfAvailabilityPicker"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="@style/TextAppearance.Medium"
+            android:text="@string/hint_end_of_availability"
+            android:labelFor="@+id/startOfAvailabilityPicker"
+            android:textAlignment="center"/>
+
+        <TimePicker
+            android:id="@+id/endOfAvailabilityPicker"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endOfAvailabilityLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/onDaysLabel"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="16dp"
+            android:timePickerMode="spinner"/>
+
+        <TextView
+            android:id="@+id/onDaysLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endOfAvailabilityPicker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/onDaysPicker"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="24dp"
+            android:textAppearance="@style/TextAppearance.Medium"
+            android:text="@string/hint_on_days"
+            android:labelFor="@+id/onDaysPicker"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:id="@+id/onDaysPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/onDaysLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/continueBtn"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sundayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/sunday"/>
+
+            <Button
+                android:id="@+id/mondayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/monday"/>
+
+            <Button
+                android:id="@+id/tuesdayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/tuesday"/>
+
+            <Button
+                android:id="@+id/wednesdayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/wednesday"/>
+
+            <Button
+                android:id="@+id/thursdayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/thursday"/>
+
+            <Button
+                android:id="@+id/fridayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/friday"/>
+
+            <Button
+                android:id="@+id/saturdayBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/Widget.Button.Day"
+                android:text="@string/saturday"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/continueBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/next"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
